@@ -15,7 +15,6 @@ const MovieDetail = () => {
     }
   };
   
-  
   if (!movie) return <div>Movie not found</div>;
   return (
     <div className="p-4">
@@ -36,8 +35,8 @@ const MovieDetail = () => {
           <div key={c.id} className="border-b py-2">
             <div className='ml-2 flex flex-col items-start'>
                 {c.text}
-                <div className='text-slate-400 text-xs'>
-                    {c.id}
+                <div className='text-gray-700 text-xs'>
+                {new Date(c.id).toLocaleString()}
                 </div>
             </div>
           </div>

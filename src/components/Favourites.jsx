@@ -5,7 +5,7 @@ import { removeFavourite } from '../features/movieSlice';
 const Favourites = () => {
   const favourites = useSelector(state => state.movies.favourites);
   const dispatch = useDispatch();
-  if (favourites.length==0) return <div>Movie not found</div>;
+  if (favourites.length==0) return <div className='m-2'>No movie in favourites</div>;
 
   return (
     <div className="p-4">
