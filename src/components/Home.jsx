@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const movies = useSelector(state => state.movies.movies);
-  console.log(movies)
   return (  
     <div className="p-4">
       <h1 className="text-2xl mb-4">All Movies</h1>

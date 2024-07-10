@@ -6,6 +6,7 @@ import { addFavourite, addComment } from '../features/movieSlice';
 const MovieDetail = () => {
   const { id } = useParams();
   const movie = useSelector(state => state.movies.movies.find(m => m.id == id));
+  const favourites = useSelector(state => state.movies.favourites)
   const dispatch = useDispatch();
   const [comment, setComment] = useState('');
   const handleAddComment = () => {
@@ -14,7 +15,8 @@ const MovieDetail = () => {
       setComment('');
     }
   };
-  
+  const isFavourite = favourites.some(fav => fav.id == id);
+
   if (!movie) return <div>Movie not found</div>;
   return (
     <div className="p-4">
@@ -24,10 +26,11 @@ const MovieDetail = () => {
         <img src={movie.image} alt={movie.name}/>
       </div>
       <button
-        onClick={() => dispatch(addFavourite(movie))}
-        className="mt-2 bg-blue-500 text-white px-4 py-2"
+        onClick={() => !isFavourite && dispatch(addFavourite(movie))}
+        className={`mt-2 ${isFavourite ? 'bg-gray-500' : 'bg-blue-500'} text-white px-4 py-2`}
+        disabled={isFavourite}
       >
-        Add to Favourites
+        {isFavourite ? 'Added' : 'Add to Favourites'}
       </button>
       <h2 className="text-xl mt-4">Comments</h2>
       <div>

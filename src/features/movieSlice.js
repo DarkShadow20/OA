@@ -27,7 +27,6 @@ const moviesSlice = createSlice({
     },
     addComment: (state, action) => {
       const movie = state.movies.find(movie => movie.id == action.payload.movieId);
-      console.log(action)
       if (movie) {
         movie.comment.push(action.payload.comment);
       }
