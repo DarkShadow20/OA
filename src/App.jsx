@@ -9,13 +9,13 @@ import Admin from './components/Admin';
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route path="/favourites" element={<Favourites/>} />
         <Route path="/movie/:id" element={<MovieDetail/>} />
         <Route path="/admin" element={<Admin/>} />
       </Routes>
+      <Navbar />
     </Router>
   )
 }
